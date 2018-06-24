@@ -3,30 +3,44 @@
 <html>
 
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <title>Can You remember?</title>
 
-    <canvas id="canvas"></canvas>
+    <link rel="stylesheet" href="css/main.css">
+
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <div id="start-screen">
+
+    </div>
+
+    <div id="restart-screen">
+        <h2 id="finalScoreDisplay">Final Score: <br>0</h2>
+        <button id="try-again-button" onclick="reloadPage()">Try again</button>
+    </div>
+
+    <div id="game-screen">
+        <canvas id="canvas"></canvas>
+        <h2 class="score" id="scoreDisplay">Score: 0</h2>
+    </div>
+
+    <div id="transitions">
+        <span id="red" class="transition"></span>
+        <span id="green" class="transition"></span>
+        <span id="gray" class="transition"></span>
+    </div>
 
     <link rel="icon" type="image/png" href="client/res/favicon.ico">
 
+    <script src="js/Animate.js"></script>
     <script src="js/ResOptions.js"></script>
     <script src="js/Tile.js"></script>
     <script src="js/Player.js"></script>
     <script src="js/G.js"></script>
     <script src="js/client.js"></script>
-
-    <style>
-        html,
-        body {
-            margin: 0px;
-        }
-
-        canvas {
-            position: absolute;
-            display: block;
-        }
-
-    </style>
 </head>
 
 <body>

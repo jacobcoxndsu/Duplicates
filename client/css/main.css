@@ -1,0 +1,387 @@
+/*
+#########
+*       All
+#########
+*/
+
+* {
+    overflow: hidden;
+}
+
+html,
+body {
+    margin: 0px;
+    background-color: darkcyan;
+    -webkit-animation: colorchange 120s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: colorchange 120s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+@keyframes colorchange {
+    0% {
+        background: #ff3232;
+    }
+    16% {
+        background: #fcf528;
+    }
+    32% {
+        background: #28fc28;
+    }
+    50% {
+        background: #28fcf8;
+    }
+    66% {
+        background: #272ef9;
+    }
+    82% {
+        background: #ff28fb;
+    }
+    100% {
+        background: #ff3232;
+    }
+}
+
+@-webkit-keyframes colorchange {
+    /* Safari and Chrome - necessary duplicate */
+    0% {
+        background: #ff3232;
+    }
+
+    16% {
+        background: #fcf528;
+    }
+
+    32% {
+        background: #28fc28;
+    }
+
+    50% {
+        background: #28fcf8;
+    }
+
+    66% {
+        background: #272ef9;
+    }
+
+    82% {
+        background: #ff28fb;
+    }
+
+    100% {
+        background: #ff3232;
+    }
+
+}
+
+/*
+#########
+*       load-wrapper
+#########
+*/
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: block;
+}
+
+#loader {
+    display: block;
+    position: absolute;
+    border: 30px solid #555555;
+    border-top-color: #3498db;
+    border-top: 30px solid red;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-left: -65px;
+    margin-top: -65px;
+    -webkit-animation: spin 2.5s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2.5s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+    z-index: 1001;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        border-top: 30px solid red;
+        transform: rotate(0deg);
+    }
+    16% {
+        border-top: 30px solid yellow;
+    }
+    32% {
+        border-top: 30px solid lime;
+    }
+    48% {
+        border-top: 30px solid cyan;
+    }
+    64% {
+        border-top: 30px solid blue;
+    }
+    80% {
+        border-top: 30px solid magenta;
+    }
+    100% {
+        border-top: 30px solid red;
+        transform: rotate(360deg);
+    }
+}
+
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #222222;
+    z-index: 1000;
+    -webkit-transform: translateX(0);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(0);
+    /* IE 9 */
+    transform: translateX(0);
+    /* Firefox 16+, IE 10+, Opera */
+}
+
+#loader-wrapper .loader-section.section-left {
+    left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+    right: 0;
+}
+
+/* Loaded */
+
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(-100%);
+    /* IE 9 */
+    transform: translateX(-100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(100%);
+    /* IE 9 */
+    transform: translateX(100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+
+    -webkit-transform: translateY(-100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateY(-100%);
+    /* IE 9 */
+    transform: translateY(-100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.3s 1s ease-out;
+    transition: all 0.3s 1s ease-out;
+}
+
+/* JavaScript Turned Off */
+
+.no-js #loader-wrapper {
+    display: none;
+}
+
+.no-js h1 {
+    color: #222222;
+}
+
+/*
+#########
+*       start-screen
+#########
+*/
+
+#start-screen {
+    display: none;
+}
+
+/*
+#########
+*       game-screen
+#########
+*/
+
+#game-screen {
+    z-index: 500;
+    display: block;
+}
+
+canvas {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.score {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 250px;
+    height: 60px;
+    z-index: 999;
+    color: white;
+    font-size: 45px;
+    font-family: "Courier New";
+}
+
+/*
+#########
+*       transitions
+#########
+*/
+
+#red {
+    background: red;
+}
+
+#red.anim {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+#gray {
+    background: #232323;
+}
+
+#gray.anim {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+#green {
+    background: green;
+}
+
+#green.anim {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+#transitions {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+}
+
+.transition {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    width: 0%;
+    height: 0%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s;
+}
+
+/*
+#########
+*       restart-screen
+#########
+*/
+
+#restart-screen {
+    display: block;
+    visibility: hidden;
+    background-color: red;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1500;
+    transition: all 2s linear;
+    opacity: 0;
+}
+
+#restart-screen.anim {
+    opacity: 1;
+}
+
+#finalScoreDisplay {
+    font-size: 60px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    width: 230px;
+    height: 200px;
+    margin-left: -115px;
+    margin-top: -100px;
+    z-index: 1501;
+    text-align: center;
+    font-family: "Courier New";
+    color: white;
+}
+
+#try-again-button {
+    background: #222222;
+    border: none;
+    color: white;
+    opacity: .8;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 30px;
+    font-family: "Courier New";
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 1501;
+}
+
+#try-again-button:hover {
+    opacity: 1;
+}
+
+#try-again-button:active {
+    opacity: 1;
+    background: green;
+}
