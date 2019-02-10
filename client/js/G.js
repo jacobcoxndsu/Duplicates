@@ -18,10 +18,10 @@ var G = {
     creatingNewLevel: false,
 
     init: function () {
-        this.context.mozImageSmoothingEnabled = false;
-        this.context.webkitImageSmoothingEnabled = false;
-        this.context.msImageSmoothingEnabled = false;
-        this.context.imageSmoothingEnabled = false;
+        //this.context.mozImageSmoothingEnabled = false;
+        //this.context.webkitImageSmoothingEnabled = false;
+        //this.context.msImageSmoothingEnabled = false;
+        //this.context.imageSmoothingEnabled = false;
 
         //Initialize the player Object
         this.p = new Player();
@@ -236,6 +236,27 @@ var G = {
         this.tiles[this.tileIndex] = newTile;
         this.tileIndex++;
         this.currentTile = newTile;
+
+        //If the length > 3 then only render the tiles around the player.
+
+        if (this.tiles.length > 2) {
+            for (var i = 0; i < this.tiles.length; i++) {
+                this.tiles[i].setDisplay(false);
+            }
+
+            for (var i = 0; i < G.tiles.length - 1; i++) {
+                var t = this.tiles[i];
+                if (i === this.p.index - 1) {
+                    t.setDisplay(true);
+                }
+                if (i === this.p.index) {
+                    t.setDisplay(true);
+                }
+                if (i === this.p.index + 1) {
+                    t.setDisplay(true);
+                }
+            }
+        }
     },
 
     /*
@@ -246,9 +267,9 @@ var G = {
         this.context = this.canvas.getContext('2d');
         this.width = this.canvas.width = window.innerWidth;
         this.height = this.canvas.height = window.innerHeight;
-        this.context.mozImageSmoothingEnabled = false;
-        this.context.webkitImageSmoothingEnabled = false;
-        this.context.msImageSmoothingEnabled = false;
-        this.context.imageSmoothingEnabled = false;
+        //this.context.mozImageSmoothingEnabled = false;
+        //this.context.webkitImageSmoothingEnabled = false;
+        //this.context.msImageSmoothingEnabled = false;
+        //this.context.imageSmoothingEnabled = false;
     },
 }

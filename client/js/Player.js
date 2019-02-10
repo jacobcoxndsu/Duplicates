@@ -82,6 +82,27 @@ function Player() {
                 this.incorrect();
             }
         }
+
+        //change the tiles to render or not if the player is a certain distance away.
+        if (!this.rememberStage) {
+            if (G.tiles.length > 2) {
+                for (var i = 0; i < G.tiles.length; i++) {
+                    var t = G.tiles[i];
+                    //t.setDisplay(false);
+                    if (i === this.index - 1) {
+                        t.setDisplay(true);
+                    }
+                    if (i === this.index) {
+                        t.setDisplay(true);
+                    }
+                    if (i + 1 <= G.tiles.length) {
+                        if (i === this.index + 1) {
+                            t.setDisplay(true);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /*
@@ -167,7 +188,7 @@ function Player() {
         }
 
         for (var i = 0; i < G.tiles.length; i++) {
-            G.tiles[i].setDisplay(false);
+            //G.tiles[i].setDisplay(false);
         }
     }
 
